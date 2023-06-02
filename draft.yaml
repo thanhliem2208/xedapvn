@@ -1,0 +1,102 @@
+models:
+    TableOption:
+        id: increments
+        image: string:255
+        name: string:255
+        code: string:255
+        price: double
+        status: int
+    TablePayment:
+        id: increments
+        name: string:255
+    TableUser:
+        id: increments
+        fullname: string:255
+        birthday: dateTime
+        email: string:255
+        phone: string:20
+        status: int
+        username: string:255
+        password: string:255
+    TableColor:
+        id: increments
+        name: string:255
+        code_color: string:20
+        status: int
+    TableSize:
+        id: increments
+        name: string:255
+        status: int
+        price: double
+        price_sale: double
+        discount: integer
+    TableOrderStatus:
+        id: increments
+        name: string:255
+    TableProductCategory:
+        id: increments
+        id_parent: integer
+        name: string:255
+        desc: string:255 nullable
+        content: mediumText nullable
+        slug: string:255
+        image: string:255
+        status: int
+    TableProduct:
+        id: increments
+        id_category: integer unique foreign:table_product_category.id
+        id_color: integer unique foreign:table_color.id
+        id_size: integer unique foreign:table_size.id
+        image: string:255 nullable
+        slug: string:255
+        name: string:255
+        desc: mediumText nullable
+        content: mediumText nullable
+        code: string:255 nullable
+        price: double
+        price_sale: double
+        discount: integer
+        quantity: integer
+        status: int
+    TableManageProduct:
+        id: increments
+        id_product: integer unique foreign:table_product.id
+        name: string:255
+        code: string:255 nullable
+        total_price: double
+    TableOptionDetail:
+        id: increments
+        id_user: integer unique foreign:table_user.id
+        id_option: integer unique foreign:table_option.id
+    TableManageDetailProduct:
+        id: increments
+        id_manage: integer unique foreign:table_manage_product.id
+        name: string:255
+        quantity: integer
+        price: double
+    TableOrder:
+        id: increments
+        id_user: integer unique foreign:table_user.id
+        id_payment: integer unique foreign:table_payment.id
+        code: string:255
+        total_price: double
+        id_order_status: integer unique foreign:table_order_status.id
+        address: string:255
+    TableGallery:
+        id: increments
+        id_parent: integer foreign:table_product.id
+        image: string:255 nullable
+        hash: string:255 nullable
+        name: string:255 nullable
+        status: int
+    TableOrderDetail:
+        id: increments
+        id_order: integer unique foreign:table_order.id
+        id_product: integer unique
+        quantity: integer
+        name: string:255
+        code_product: string:255
+        price: double
+        price_sale: double
+        color: string:255
+        size: string:255
