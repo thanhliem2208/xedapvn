@@ -17,7 +17,7 @@ class CreateTableColorsTable extends Migration
             $table->increments('id');
             $table->string('name', 255);
             $table->string('code_color', 20);
-            $table->string('status');
+            $table->integer('status');
             $table->timestamps();
         });
     }

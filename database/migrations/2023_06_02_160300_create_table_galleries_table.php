@@ -22,7 +22,7 @@ class CreateTableGalleriesTable extends Migration
             $table->string('image', 255)->nullable();
             $table->string('hash', 255)->nullable();
             $table->string('name', 255)->nullable();
-            $table->string('status');
+            $table->integer('status');
             $table->timestamps();
         });
 

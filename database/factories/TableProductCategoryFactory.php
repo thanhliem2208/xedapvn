@@ -29,7 +29,7 @@ class TableProductCategoryFactory extends Factory
             'content' => $this->faker->paragraphs(3, true),
             'slug' => $this->faker->slug,
             'image' => $this->faker->regexify('[A-Za-z0-9]{255}'),
-            'status' => $this->faker->word,
+            'status' => $this->faker->numberBetween(-10000, 10000),
         ];
     }
 }

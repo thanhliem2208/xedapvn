@@ -30,6 +30,7 @@ class TableOrder extends Model
      */
     protected $casts = [
         'total_price' => 'double',
+        'id_order_status' => 'integer',
     ];
 
     public function idUser()

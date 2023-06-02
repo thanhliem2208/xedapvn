@@ -4,17 +4,16 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
-use App\Models\TableGallery;
-use App\Models\TableProduct;
+use App\Models\TableNews;
 
-class TableGalleryFactory extends Factory
+class TableNewsFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = TableGallery::class;
+    protected $model = TableNews::class;
 
     /**
      * Define the model's default state.
@@ -24,10 +23,10 @@ class TableGalleryFactory extends Factory
     public function definition()
     {
         return [
-            'id_parent' => TableProduct::factory(),
-            'image' => $this->faker->regexify('[A-Za-z0-9]{255}'),
-            'hash' => $this->faker->regexify('[A-Za-z0-9]{255}'),
             'name' => $this->faker->name,
+            'desc' => $this->faker->text,
+            'content' => $this->faker->paragraphs(3, true),
+            'image' => $this->faker->regexify('[A-Za-z0-9]{255}'),
             'status' => $this->faker->numberBetween(-10000, 10000),
         ];
     }

@@ -13,20 +13,26 @@ created:
     - database/factories/TableOrderFactory.php
     - database/factories/TableGalleryFactory.php
     - database/factories/TableOrderDetailFactory.php
-    - database/migrations/2023_06_02_154432_create_table_options_table.php
-    - database/migrations/2023_06_02_154433_create_table_payments_table.php
-    - database/migrations/2023_06_02_154434_create_table_users_table.php
-    - database/migrations/2023_06_02_154435_create_table_colors_table.php
-    - database/migrations/2023_06_02_154436_create_table_sizes_table.php
-    - database/migrations/2023_06_02_154437_create_table_order_statuses_table.php
-    - database/migrations/2023_06_02_154438_create_table_product_categories_table.php
-    - database/migrations/2023_06_02_154439_create_table_products_table.php
-    - database/migrations/2023_06_02_154440_create_table_manage_products_table.php
-    - database/migrations/2023_06_02_154441_create_table_option_details_table.php
-    - database/migrations/2023_06_02_154442_create_table_manage_detail_products_table.php
-    - database/migrations/2023_06_02_154443_create_table_orders_table.php
-    - database/migrations/2023_06_02_154444_create_table_galleries_table.php
-    - database/migrations/2023_06_02_154445_create_table_order_details_table.php
+    - database/factories/TableNewsFactory.php
+    - database/factories/TablePhotoFactory.php
+    - database/factories/TableAdminFactory.php
+    - database/migrations/2023_06_02_160248_create_table_options_table.php
+    - database/migrations/2023_06_02_160249_create_table_payments_table.php
+    - database/migrations/2023_06_02_160250_create_table_users_table.php
+    - database/migrations/2023_06_02_160251_create_table_colors_table.php
+    - database/migrations/2023_06_02_160252_create_table_sizes_table.php
+    - database/migrations/2023_06_02_160253_create_table_order_statuses_table.php
+    - database/migrations/2023_06_02_160254_create_table_product_categories_table.php
+    - database/migrations/2023_06_02_160255_create_table_products_table.php
+    - database/migrations/2023_06_02_160256_create_table_manage_products_table.php
+    - database/migrations/2023_06_02_160257_create_table_option_details_table.php
+    - database/migrations/2023_06_02_160258_create_table_manage_detail_products_table.php
+    - database/migrations/2023_06_02_160259_create_table_orders_table.php
+    - database/migrations/2023_06_02_160300_create_table_galleries_table.php
+    - database/migrations/2023_06_02_160301_create_table_order_details_table.php
+    - database/migrations/2023_06_02_160302_create_table_news_table.php
+    - database/migrations/2023_06_02_160303_create_table_photos_table.php
+    - database/migrations/2023_06_02_160304_create_table_admins_table.php
     - app/Models/TableOption.php
     - app/Models/TablePayment.php
     - app/Models/TableUser.php
@@ -41,18 +47,24 @@ created:
     - app/Models/TableOrder.php
     - app/Models/TableGallery.php
     - app/Models/TableOrderDetail.php
+    - app/Models/TableNews.php
+    - app/Models/TablePhoto.php
+    - app/Models/TableAdmin.php
 models:
     TableOrderStatus: { id: increments, name: 'string:255' }
     TableManageProduct: { id: increments, id_product: 'integer unique foreign:table_product.id', name: 'string:255', code: 'string:255 nullable', total_price: double }
-    TableSize: { id: increments, name: 'string:255', status: int, price: double, price_sale: double, discount: integer }
+    TableSize: { id: increments, name: 'string:255', status: integer, price: double, price_sale: double, discount: integer }
     TableOptionDetail: { id: increments, id_user: 'integer unique foreign:table_user.id', id_option: 'integer unique foreign:table_option.id' }
-    TableUser: { id: increments, fullname: 'string:255', birthday: dateTime, email: 'string:255', phone: 'string:20', status: int, username: 'string:255', password: 'string:255' }
+    TableUser: { id: increments, fullname: 'string:255', birthday: dateTime, email: 'string:255', phone: 'string:20', status: integer, username: 'string:255', password: 'string:255' }
     TableManageDetailProduct: { id: increments, id_manage: 'integer unique foreign:table_manage_product.id', name: 'string:255', quantity: integer, price: double }
-    TableOrder: { id: increments, id_user: 'integer unique foreign:table_user.id', id_payment: 'integer unique foreign:table_payment.id', code: 'string:255', total_price: double, id_order_status: 'integer unique foreign:table_order_status.id', address: 'string:255' }
-    TableProductCategory: { id: increments, id_parent: integer, name: 'string:255', desc: 'string:255 nullable', content: 'mediumText nullable', slug: 'string:255', image: 'string:255', status: int }
-    TableProduct: { id: increments, id_category: 'integer unique foreign:table_product_category.id', id_color: 'integer unique foreign:table_color.id', id_size: 'integer unique foreign:table_size.id', image: 'string:255 nullable', slug: 'string:255', name: 'string:255', desc: 'mediumText nullable', content: 'mediumText nullable', code: 'string:255 nullable', price: double, price_sale: double, discount: integer, quantity: integer, status: int }
+    TableOrder: { id: increments, id_user: 'integer unique foreign:table_user.id', id_payment: 'integer unique foreign:table_payment.id', code: 'string:255', total_price: double, id_order_status: 'integereger unique foreign:table_order_status.id', address: 'string:255' }
+    TableProductCategory: { id: increments, id_parent: integer, name: 'string:255', desc: 'string:255 nullable', content: 'mediumText nullable', slug: 'string:255', image: 'string:255', status: integer }
+    TableProduct: { id: increments, id_category: 'integer unique foreign:table_product_category.id', id_color: 'integer unique foreign:table_color.id', id_size: 'integer unique foreign:table_size.id', image: 'string:255 nullable', slug: 'string:255', name: 'string:255', desc: 'mediumText nullable', content: 'mediumText nullable', code: 'string:255 nullable', price: double, price_sale: double, discount: integer, quantity: integer, status: integer }
     TablePayment: { id: increments, name: 'string:255' }
-    TableColor: { id: increments, name: 'string:255', code_color: 'string:20', status: int }
-    TableGallery: { id: increments, id_parent: 'integer foreign:table_product.id', image: 'string:255 nullable', hash: 'string:255 nullable', name: 'string:255 nullable', status: int }
+    TableColor: { id: increments, name: 'string:255', code_color: 'string:20', status: integer }
+    TableGallery: { id: increments, id_parent: 'integer foreign:table_product.id', image: 'string:255 nullable', hash: 'string:255 nullable', name: 'string:255 nullable', status: integer }
     TableOrderDetail: { id: increments, id_order: 'integer unique foreign:table_order.id', id_product: 'integer unique', quantity: integer, name: 'string:255', code_product: 'string:255', price: double, price_sale: double, color: 'string:255', size: 'string:255' }
-    TableOption: { id: increments, image: 'string:255', name: 'string:255', code: 'string:255', price: double, status: int }
+    TableOption: { id: increments, image: 'string:255', name: 'string:255', code: 'string:255', price: double, status: integer }
+    TableNews: { id: increments, name: 'string:255', desc: mediumText, content: mediumText, image: 'string:255', status: integer }
+    TablePhoto: { id: increments, image: 'string:255', link: 'string:255', name: 'string:255', type: 'string:255', status: integer }
+    TableAdmin: { id: increments, fullname: 'string:255', phone: 'string:255', username: 'string:255', password: 'string:255', status: integer }

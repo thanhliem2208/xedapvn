@@ -27,7 +27,7 @@ class TableOptionFactory extends Factory
             'name' => $this->faker->name,
             'code' => $this->faker->regexify('[A-Za-z0-9]{255}'),
             'price' => $this->faker->randomFloat(0, 0, 9999999999.),
-            'status' => $this->faker->word,
+            'status' => $this->faker->numberBetween(-10000, 10000),
         ];
     }
 }

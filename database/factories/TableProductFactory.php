@@ -39,7 +39,7 @@ class TableProductFactory extends Factory
             'price_sale' => $this->faker->randomFloat(0, 0, 9999999999.),
             'discount' => $this->faker->numberBetween(-10000, 10000),
             'quantity' => $this->faker->numberBetween(-10000, 10000),
-            'status' => $this->faker->word,
+            'status' => $this->faker->numberBetween(-10000, 10000),
         ];
     }
 }

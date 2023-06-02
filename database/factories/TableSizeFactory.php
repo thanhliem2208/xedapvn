@@ -24,7 +24,7 @@ class TableSizeFactory extends Factory
     {
         return [
             'name' => $this->faker->name,
-            'status' => $this->faker->word,
+            'status' => $this->faker->numberBetween(-10000, 10000),
             'price' => $this->faker->randomFloat(0, 0, 9999999999.),
             'price_sale' => $this->faker->randomFloat(0, 0, 9999999999.),
             'discount' => $this->faker->numberBetween(-10000, 10000),

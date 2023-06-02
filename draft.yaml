@@ -5,7 +5,7 @@ models:
         name: string:255
         code: string:255
         price: double
-        status: int
+        status: integer
     TablePayment:
         id: increments
         name: string:255
@@ -15,18 +15,18 @@ models:
         birthday: dateTime
         email: string:255
         phone: string:20
-        status: int
+        status: integer
         username: string:255
         password: string:255
     TableColor:
         id: increments
         name: string:255
         code_color: string:20
-        status: int
+        status: integer
     TableSize:
         id: increments
         name: string:255
-        status: int
+        status: integer
         price: double
         price_sale: double
         discount: integer
@@ -41,7 +41,7 @@ models:
         content: mediumText nullable
         slug: string:255
         image: string:255
-        status: int
+        status: integer
     TableProduct:
         id: increments
         id_category: integer unique foreign:table_product_category.id
@@ -57,7 +57,7 @@ models:
         price_sale: double
         discount: integer
         quantity: integer
-        status: int
+        status: integer
     TableManageProduct:
         id: increments
         id_product: integer unique foreign:table_product.id
@@ -80,7 +80,7 @@ models:
         id_payment: integer unique foreign:table_payment.id
         code: string:255
         total_price: double
-        id_order_status: integer unique foreign:table_order_status.id
+        id_order_status: integereger unique foreign:table_order_status.id
         address: string:255
     TableGallery:
         id: increments
@@ -88,7 +88,7 @@ models:
         image: string:255 nullable
         hash: string:255 nullable
         name: string:255 nullable
-        status: int
+        status: integer
     TableOrderDetail:
         id: increments
         id_order: integer unique foreign:table_order.id
@@ -100,3 +100,24 @@ models:
         price_sale: double
         color: string:255
         size: string:255
+    TableNews:
+        id: increments
+        name: string:255
+        desc: mediumText
+        content: mediumText
+        image: string:255
+        status: integer
+    TablePhoto:
+        id: increments
+        image: string:255
+        link: string:255
+        name: string:255
+        type: string:255
+        status: integer
+    TableAdmin:
+        id: increments
+        fullname: string:255
+        phone: string:255
+        username: string:255
+        password: string:255
+        status: integer

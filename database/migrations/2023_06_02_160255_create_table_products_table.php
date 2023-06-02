@@ -33,7 +33,7 @@ class CreateTableProductsTable extends Migration
             $table->double('price_sale');
             $table->integer('discount');
             $table->integer('quantity');
-            $table->string('status');
+            $table->integer('status');
             $table->timestamps();
         });
 

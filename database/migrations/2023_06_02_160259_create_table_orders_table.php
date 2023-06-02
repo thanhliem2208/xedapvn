@@ -23,8 +23,7 @@ class CreateTableOrdersTable extends Migration
             $table->foreign('id_payment')->references('id')->on('table_payment');
             $table->string('code', 255);
             $table->double('total_price');
-            $table->integer('id_order_status')->unique();
-            $table->foreign('id_order_status')->references('id')->on('table_order_status');
+            $table->foreignId('id_order_status')->constrained('table_order_status')->unique();
             $table->string('address', 255);
             $table->timestamps();
         });

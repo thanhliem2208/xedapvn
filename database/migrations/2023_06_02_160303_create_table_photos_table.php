@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTableSizesTable extends Migration
+class CreateTablePhotosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,19 @@ class CreateTableSizesTable extends Migration
      */
     public function up()
     {
-        Schema::create('table_sizes', function (Blueprint $table) {
+        Schema::disableForeignKeyConstraints();
+
+        Schema::create('table_photos', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('image', 255);
+            $table->string('link', 255);
             $table->string('name', 255);
-            $table->string('status');
-            $table->double('price');
-            $table->double('price_sale');
-            $table->integer('discount');
+            $table->string('type', 255);
+            $table->integer('status');
             $table->timestamps();
         });
+
+        Schema::enableForeignKeyConstraints();
     }
 
     /**
@@ -31,6 +35,6 @@ class CreateTableSizesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('table_sizes');
+        Schema::dropIfExists('table_photos');
     }
 }

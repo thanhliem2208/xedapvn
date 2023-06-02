@@ -25,7 +25,7 @@ class TableColorFactory extends Factory
         return [
             'name' => $this->faker->name,
             'code_color' => $this->faker->regexify('[A-Za-z0-9]{20}'),
-            'status' => $this->faker->word,
+            'status' => $this->faker->numberBetween(-10000, 10000),
         ];
     }
 }

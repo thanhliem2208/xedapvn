@@ -27,7 +27,7 @@ class TableUserFactory extends Factory
             'birthday' => $this->faker->dateTime(),
             'email' => $this->faker->safeEmail,
             'phone' => $this->faker->phoneNumber,
-            'status' => $this->faker->word,
+            'status' => $this->faker->numberBetween(-10000, 10000),
             'username' => $this->faker->userName,
             'password' => $this->faker->password,
         ];
