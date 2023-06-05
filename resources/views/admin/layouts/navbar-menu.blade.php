@@ -2,16 +2,8 @@
             <!-- LOGO -->
             <div class="navbar-brand-box">
                 <!-- Dark Logo-->
-                <a href="index.html" class="logo logo-dark">
-                    <span class="logo-sm">
-                        <img src="{{asset('backend/images/logo-sm.png')}}" alt="" height="22">
-                    </span>
-                    <span class="logo-lg">
-                        <img src="{{asset('backend/images/logo-dark.pn')}}" alt="" height="17">
-                    </span>
-                </a>
                 <!-- Light Logo-->
-                <a href="index.html" class="logo logo-light">
+                <a href="{{ route('admin.dashboard') }}" class="logo logo-light">
                     <span class="logo-sm">
                         <img src="{{asset('backend/images/logo-sm.png')}}" alt="" height="22">
                     </span>
@@ -32,7 +24,7 @@
                     <ul class="navbar-nav" id="navbar-nav">
                         <li class="menu-title"><span data-key="t-menu">Menu</span></li>
                         <li class="nav-item">
-                            <a class="nav-link menu-link" href="index.html" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarDashboards"><span data-key="t-dashboards">Dashboards</span>
+                            <a class="nav-link menu-link" href="{{ route('admin.dashboard') }}" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarDashboards"><span data-key="t-dashboards">Dashboards</span>
                             </a>
                         </li> <!-- end Dashboard Menu -->
                         <li class="nav-item">
@@ -81,13 +73,13 @@
                                         <div class="collapse menu-dropdown" id="sidebarEcommerce">
                                             <ul class="nav nav-sm flex-column">
                                                 <li class="nav-item">
-                                                    <a href="apps-ecommerce-products.html" class="nav-link" data-key="t-products"> Products </a>
+                                                    <a href="{{ route('admin.product') }}" class="nav-link" data-key="t-products"> Products </a>
                                                 </li>
-                                                <li class="nav-item">
+                                                {{-- <li class="nav-item">
                                                     <a href="apps-ecommerce-product-details.html" class="nav-link" data-key="t-product-Details"> Product Details </a>
-                                                </li>
+                                                </li> --}}
                                                 <li class="nav-item">
-                                                    <a href="apps-ecommerce-add-product.html" class="nav-link" data-key="t-create-product"> Create Product </a>
+                                                    <a href="{{ route('admin.productcreate') }}" class="nav-link" data-key="t-create-product"> Create Product </a>
                                                 </li>
                                                 <li class="nav-item">
                                                     <a href="apps-ecommerce-orders.html" class="nav-link" data-key="t-orders">

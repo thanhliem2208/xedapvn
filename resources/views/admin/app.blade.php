@@ -56,7 +56,7 @@
             <div class="page-content">
                 <div class="container-fluid">
                     <!--Phần thân của tamplate-->
-                    @show
+                    
                     @yield('body')
 
                 </div>

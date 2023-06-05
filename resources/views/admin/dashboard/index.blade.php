@@ -1,4 +1,4 @@
-@extends('admin.index')
+@extends('admin.app')
 
 @section('body')
     <div class="row">

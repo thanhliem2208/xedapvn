@@ -4,8 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
-class TableUser extends Model
+use Illuminate\Foundation\Auth\User as Authenticatable;
+class TableUser extends Authenticatable
 {
     use HasFactory;
 
@@ -30,7 +30,7 @@ class TableUser extends Model
      * @var array
      */
     protected $hidden = [
-        'password',
+        'password', 'remember_token',
     ];
 
     /**
@@ -40,5 +40,6 @@ class TableUser extends Model
      */
     protected $casts = [
         'birthday' => 'datetime',
+        'email_verified_at' => 'datetime',
     ];
 }
